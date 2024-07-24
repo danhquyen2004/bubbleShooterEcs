@@ -19,27 +19,27 @@ MonoBehaviour:
   - Number: 2
     Color:
       serializedVersion: 2
-      rgba: 4288901859
+      rgba: 4289166050
   - Number: 4
     Color:
       serializedVersion: 2
-      rgba: 4281744316
+      rgba: 4290545462
   - Number: 8
     Color:
       serializedVersion: 2
-      rgba: 4283416051
+      rgba: 4283429619
   - Number: 16
     Color:
       serializedVersion: 2
-      rgba: 4282019309
+      rgba: 4282006253
   - Number: 32
     Color:
       serializedVersion: 2
-      rgba: 4286829169
+      rgba: 4288345477
   - Number: 64
     Color:
       serializedVersion: 2
-      rgba: 4283296170
+      rgba: 4289844735
   - Number: 128
     Color:
       serializedVersion: 2

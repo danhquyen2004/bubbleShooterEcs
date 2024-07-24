@@ -37,6 +37,8 @@ namespace Game.Ecs.Systems
                 //}
 
                 Debug.Log("GameOver");
+                GameController.instance.gameOver = true;
+                return;
             }
             else if (rowCount < _config.RowsMin)
             {
@@ -45,6 +47,18 @@ namespace Game.Ecs.Systems
                     _bubbleFilter.Get2(i).Value.y++;
                 }
                 PopulateRow(0, !IsTopRowShifted());
+            }
+
+            // do something;
+
+            if(GameController.instance.missCount>=3)
+            {
+                foreach (var i in _bubbleFilter)
+                {
+                    _bubbleFilter.Get2(i).Value.y++;
+                }
+                PopulateRow(0, !IsTopRowShifted());
+                GameController.instance.missCount = 0;
             }
         }
 

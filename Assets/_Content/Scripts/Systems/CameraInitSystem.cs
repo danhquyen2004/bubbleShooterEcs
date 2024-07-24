@@ -25,7 +25,7 @@ namespace Game.Ecs.Systems
             var bottomLeft = Hex.ToWorldPosition(new Vector2Int(0, rowMax));
 
             Vector3 gridCenter = (topLeft + topRight + bottomRight + bottomLeft) / 4f;
-
+            gridCenter.y = gridCenter.y + 1.25f;
             gridCenter.z = _scene.Camera.transform.position.z;
             _scene.Camera.transform.position = gridCenter;
 

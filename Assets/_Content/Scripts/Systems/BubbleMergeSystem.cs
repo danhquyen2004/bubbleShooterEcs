@@ -44,6 +44,7 @@ namespace Game.Ecs.Systems
 
             if (_toMerge.Count <= 2)
             {
+                GameController.instance.missCount++;
                 return;
             }
 
@@ -56,8 +57,8 @@ namespace Game.Ecs.Systems
             var mergeBubble = GetMergeBubble(_toMerge, mergedValue);
             var mergePosition = mergeBubble.Get<Position>().Value;
 
-           // PointManager.Instance.AddPoint(10,_toMerge.Count);
-
+            // PointManager.Instance.AddPoint(10,_toMerge.Count);
+            GameController.instance.missCount = 0;
             foreach (var bubble in _toMerge)
             {
                 bubble.Get<Merging>().Target = mergePosition;

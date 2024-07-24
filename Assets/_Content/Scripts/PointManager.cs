@@ -6,7 +6,7 @@ public class PointManager : MonoBehaviour
 {
     public static PointManager Instance {  get; private set; }
     public int point = 0;
-
+    public int bestPoint;
     private void Awake()
     {
         if(Instance != null)
@@ -15,6 +15,11 @@ public class PointManager : MonoBehaviour
             return;
         }
         Instance = this;
+        SetUpBestPoint();
+    }
+    public void SetUpBestPoint()
+    {
+        bestPoint = PlayerPrefs.GetInt("BestPoint");
     }
     public void AddPoint(int value,int x = 1)
     {

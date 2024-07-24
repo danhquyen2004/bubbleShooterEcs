@@ -88,6 +88,7 @@ namespace Game.Ecs
 
         private void Update()
         {
+            if (GameController.instance.gameOver) return;
             _systems?.Run();
         }
 

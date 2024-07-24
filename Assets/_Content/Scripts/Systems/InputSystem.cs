@@ -8,7 +8,7 @@ namespace Game.Ecs.Systems
     {
         private readonly EcsWorld _world = default;
         private readonly ISceneContext _scene = default;
-        
+
         void IEcsRunSystem.Run()
         {
             var entity = EcsEntity.Null;

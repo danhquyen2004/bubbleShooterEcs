@@ -14,7 +14,7 @@ namespace Game.Ecs.Systems
             {
                 _heldFilter.GetEntity(i).Destroy();
             }
-            
+
             foreach (var i in _releasedFilter)
             {
                 _releasedFilter.GetEntity(i).Destroy();
