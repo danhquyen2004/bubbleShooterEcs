@@ -19,19 +19,25 @@ namespace Game.Ecs.Systems
 
             var topLeft = Hex.ToWorldPosition(new Vector2Int(colMin, 0));
             var topRight = Hex.ToWorldPosition(new Vector2Int(colMax, 0));
-            
+
             Hex.GetColBounds(rowMax, _config.BoardSize.x, out colMin, out colMax);
-            
+
             var bottomLeft = Hex.ToWorldPosition(new Vector2Int(colMin, rowMax));
             var bottomRight = Hex.ToWorldPosition(new Vector2Int(colMax, rowMax));
 
             var left = new GameObject("Left").AddComponent<EdgeCollider2D>();
             left.transform.SetParent(parent);
-            left.points = new[] {topLeft, bottomLeft};
-            
+            left.points = new[] { topLeft, bottomLeft };
+
             var right = new GameObject("Right").AddComponent<EdgeCollider2D>();
             right.transform.SetParent(parent);
-            right.points = new[] {topRight, bottomRight};
+            right.points = new[] { topRight, bottomRight };
+
+            // Thêm collider phía trên
+            var top = new GameObject("Top").AddComponent<EdgeCollider2D>();
+            top.transform.SetParent(parent);
+            top.points = new[] { topLeft, topRight };
         }
+
     }
 }

@@ -15,12 +15,12 @@ namespace Game.Ecs.Systems
             _scene.TrajectoryRenderer.enabled = !_prediction.IsEmpty();
 
             var trajectoryCount = _trajectory.GetEntitiesCount();
-            
+
             _scene.TrajectoryRenderer.positionCount = trajectoryCount;
 
             for (int i = 0; i < trajectoryCount; i++)
             {
-                _scene.TrajectoryRenderer.SetPosition(i,  _trajectory.Get2(i).Value);
+                _scene.TrajectoryRenderer.SetPosition(i, _trajectory.Get2(i).Value);
             }
         }
     }

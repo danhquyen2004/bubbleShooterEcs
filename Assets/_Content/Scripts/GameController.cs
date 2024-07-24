@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public int missCount;
     public bool gameOver;
+    [HideInInspector] public bool topIsEmpty;
     private void Awake()
     {
         instance = this;

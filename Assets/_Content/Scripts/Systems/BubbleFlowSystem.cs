@@ -60,6 +60,8 @@ namespace Game.Ecs.Systems
                 PopulateRow(0, !IsTopRowShifted());
                 GameController.instance.missCount = 0;
             }
+
+
         }
 
         private void PopulateRow(int row, bool shift)

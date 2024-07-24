@@ -60,7 +60,7 @@ namespace Game.Ecs.Systems
             {
                 return;
             }
-            
+
             Vector2Int hitBubblePosition = Vector2Int.zero;
             foreach (var i in _bubbleFilter)
             {
