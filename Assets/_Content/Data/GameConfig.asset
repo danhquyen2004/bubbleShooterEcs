@@ -64,5 +64,5 @@ MonoBehaviour:
   _rowsMin: 4
   _mergePopupText: {fileID: 7260120582886033103, guid: 1122c979bec4045b4bf67bde99d23460,
     type: 3}
-  _bubbleMoveSpeed: 20
+  _bubbleMoveSpeed: 7
   _bubbleFlySpeed: 20
