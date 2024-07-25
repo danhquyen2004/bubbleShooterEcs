@@ -1,5 +1,7 @@
 ﻿using Game.Ecs.Components;
 using Leopotam.Ecs;
+using System;
+using System.Diagnostics;
 
 namespace Game.Ecs.Systems
 {
@@ -29,6 +31,7 @@ namespace Game.Ecs.Systems
             bubble.Get<Created>();
             bubble.Get<Merge>();
             bubble.Del<Next>();
+
         }
     }
 }

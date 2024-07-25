@@ -9,7 +9,7 @@ namespace Game.Ecs.Systems
         private readonly EcsWorld _world = default;
         private readonly IConfig _config = default;
         private readonly IRandomService _random = default;
-        
+
         private readonly EcsFilter<Bubble, Position>.Exclude<Created> _bubbleFilter = default;
         private readonly EcsFilter<Moving> _movingFilter = default;
         private readonly EcsFilter<Merge> _mergeFilter = default;
@@ -21,9 +21,11 @@ namespace Game.Ecs.Systems
                 return;
             }
 
-            var rowCount = GetRowCount();
             
-            if (rowCount > _config.RowsMax)
+
+            var rowCount = GetRowCount();
+
+            if (rowCount > (_config.BoardSize.y - 2))
             {
                 //foreach (var i in _bubbleFilter)
                 //{
@@ -51,7 +53,7 @@ namespace Game.Ecs.Systems
 
             // do something;
 
-            if(GameController.instance.missCount>=3)
+            if (GameController.instance.missCount >= PointManager.Instance.maxMiss)
             {
                 foreach (var i in _bubbleFilter)
                 {
@@ -61,7 +63,14 @@ namespace Game.Ecs.Systems
                 GameController.instance.missCount = 0;
             }
 
-
+            if (!CheckBubbleTopFull())
+            {
+                foreach (var i in _bubbleFilter)
+                {
+                    _bubbleFilter.Get2(i).Value.y++;
+                }
+                PopulateRow(0, !IsTopRowShifted());
+            }
         }
 
         private void PopulateRow(int row, bool shift)
@@ -78,8 +87,8 @@ namespace Game.Ecs.Systems
             {
                 var random = _random.Range(0, 6);
                 _world.NewEntity()
-                    .Replace(new Bubble {Value = _config.BubbleData[random].Number})
-                    .Replace(new Position {Value = new Vector2Int(x, row)});
+                    .Replace(new Bubble { Value = _config.BubbleData[random].Number })
+                    .Replace(new Position { Value = new Vector2Int(x, row) });
             }
         }
 
@@ -117,6 +126,22 @@ namespace Game.Ecs.Systems
                 }
             }
             return result + 1;
+        }
+
+        private bool CheckBubbleTopFull()
+        {
+            var topRow = 0;
+            var bubbleCountInTopRow = 0;
+            foreach (var i in _bubbleFilter)
+            {
+                if (_bubbleFilter.Get2(i).Value.y == topRow)
+                {
+                    bubbleCountInTopRow++;
+                }
+            }
+
+            return bubbleCountInTopRow == _config.BoardSize.x;
+
         }
     }
 }

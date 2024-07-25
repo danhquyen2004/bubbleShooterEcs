@@ -7,11 +7,11 @@ namespace Game
     [CreateAssetMenu(fileName = "Config", menuName = "Game/Config")]
     public sealed class Config : ScriptableObject, IConfig
     {
-        [SerializeField] private Vector2Int _boardSize = default;
+        [SerializeField] public Vector2Int _boardSize = default;
         [SerializeField] private BubbleView _bubbleView = default;
         [SerializeField] private BubbleData[] _bubbleData = default;
-        [SerializeField] private int _rowsMax = default;
-        [SerializeField] private int _rowsMin = default;
+        [SerializeField] public int _rowsMax = default;
+        [SerializeField] public int _rowsMin = default;
         [SerializeField] private MergePopupText _mergePopupText = default;
         [SerializeField] private float _bubbleMoveSpeed = default;
         [SerializeField] private float _bubbleFlySpeed = default;

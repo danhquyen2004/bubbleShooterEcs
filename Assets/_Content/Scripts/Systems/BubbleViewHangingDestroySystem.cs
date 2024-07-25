@@ -33,6 +33,7 @@ namespace Game.Ecs.Systems
 
                     _scene.DestroyParticles.Emit(particleParams, 10);
                     PointManager.Instance.AddPoint(10);
+                    AudioController.Instance.sound.Play_pop();
                 }
 
                 _filter.GetEntity(i).Del<UnityObject<BubbleView>>();

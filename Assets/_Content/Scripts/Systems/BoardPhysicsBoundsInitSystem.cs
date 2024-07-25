@@ -33,10 +33,6 @@ namespace Game.Ecs.Systems
             right.transform.SetParent(parent);
             right.points = new[] { topRight, bottomRight };
 
-            // Thêm collider phía trên
-            var top = new GameObject("Top").AddComponent<EdgeCollider2D>();
-            top.transform.SetParent(parent);
-            top.points = new[] { topLeft, topRight };
         }
 
     }

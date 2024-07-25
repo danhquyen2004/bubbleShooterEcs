@@ -11,6 +11,8 @@ namespace Game.Ecs.Systems
 
         void IEcsRunSystem.Run()
         {
+            if (EventUI.Instance.IsPointerOverUIObject()) return;
+
             var entity = EcsEntity.Null;
 
             if (Input.GetMouseButton(0))
