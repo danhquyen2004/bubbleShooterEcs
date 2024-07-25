@@ -17,7 +17,8 @@ public class UI_Manager : MonoBehaviour
     private float startTime;
     private bool isRunning = false;
 
-
+    [Header("Popup")]
+    [SerializeField] GameObject gameOverPopup;
     private void Start()
     {
         timer.text = "00:00.00";
@@ -31,6 +32,7 @@ public class UI_Manager : MonoBehaviour
         UpdatePoint();
         UpdateBestScore();
         UpdateTimer();
+        UpdatePopupPanel();
     }
 
     private void UpdatePoint()
@@ -58,6 +60,18 @@ public class UI_Manager : MonoBehaviour
         }
 
     }
+
+    private void UpdatePopupPanel()
+    {
+        if(GameController.instance.gameOver)
+        {
+            StopTimer();
+            gameOverPopup.SetActive(true);
+        }
+            
+    }
+
+    #region TimerHandle
     public void StartTimer()
     {
         startTime = Time.time;
@@ -74,5 +88,5 @@ public class UI_Manager : MonoBehaviour
         isRunning = false;
         timer.text = "00:00";
     }
-
+    #endregion
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13a221eac7a3468facbd01b4d39e182, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  _boardSize: {x: 7, y: 11}
+  _boardSize: {x: 9, y: 11}
   _bubbleView: {fileID: 5966502574797495775, guid: fa38ec85819cc452ea4059912b611d1c,
     type: 3}
   _bubbleData:
