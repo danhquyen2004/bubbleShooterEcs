@@ -14,7 +14,7 @@ namespace Game.Ecs.Systems
             {
                 return;
             }
-            
+
             foreach (var i in _bubbleFilter)
             {
                 var entity = _bubbleFilter.GetEntity(i);

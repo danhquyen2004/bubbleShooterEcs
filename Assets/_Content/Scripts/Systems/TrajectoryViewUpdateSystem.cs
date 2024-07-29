@@ -20,6 +20,7 @@ namespace Game.Ecs.Systems
 
             for (int i = 0; i < trajectoryCount; i++)
             {
+                if(i==2) { _scene.TrajectoryRenderer.SetPosition(i, _trajectory.Get2(i-1).Value);break; }
                 _scene.TrajectoryRenderer.SetPosition(i, _trajectory.Get2(i).Value);
             }
         }

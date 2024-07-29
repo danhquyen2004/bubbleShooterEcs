@@ -11,27 +11,26 @@ public class UI_PopupComplete : MonoBehaviour
     {
         AudioController.Instance.sound.Play_GameOver();
         score.text = PointManager.Instance.point.ToString();
+        WebUpdate(PointManager.Instance.point);
+        NewRecord();
     }
 
-    //private void NewRecord(string timer)
-    //{
-    //    int currentRecord = record.GetRecord(CurrentLevel.Instance.level);
-    //    int newRecord = Record.ConvertToPoint(timer);
-    //    if (currentRecord < 0 || currentRecord < newRecord)
-    //    {
-    //        levelOfDifficult.text = "NEW RECORD!";
-    //        levelOfDifficult.color = Color.yellow;
-    //        record.SetRecord(CurrentLevel.Instance.level, newRecord);
-    //    }
-    //}
+    private void NewRecord()
+    {
+        int currentRecord = PointManager.Instance.bestPoint;
+        if (currentRecord < 0 || currentRecord < PointManager.Instance.point)
+        {
+            PointManager.Instance.SetRecord(PointManager.Instance.point);
+        }
+    }
 
-    //private void WebUpdate(int point)
-    //{
-    //    if (Application.platform == RuntimePlatform.WebGLPlayer)
-    //    {
-    //        MapValue mapValue =
-    //            new MapValue((int)CurrentLevel.Instance.level, point, 0);
-    //        Platform.PlatformService.UpdateGame(mapValue);
-    //    }
-    //}
+    private void WebUpdate(int point)
+    {
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            MapValue mapValue =
+                new MapValue(PointManager.Instance.currentLevel, 0,point);
+            Platform.PlatformService.UpdateGame(mapValue);
+        }
+    }
 }

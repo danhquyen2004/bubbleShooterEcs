@@ -7,6 +7,7 @@ namespace Game.View
     public class BubbleView : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _renderer = default;
+        [SerializeField] private SpriteRenderer _bubbleFilter = default;
         [SerializeField] private TextMeshPro _text = default;
         [SerializeField] private Collider2D _collider = default;
         [SerializeField] private Rigidbody2D _rigidbody = default;
@@ -32,7 +33,10 @@ namespace Game.View
         {
             transform.localPosition = position;
         }
-
+        private void Update()
+        {
+            _bubbleFilter.gameObject.SetActive(_text.IsActive());
+        }
         private void OnDestroy()
         {
             DOTween.Kill(_renderer.transform);

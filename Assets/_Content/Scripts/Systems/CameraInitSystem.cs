@@ -31,7 +31,7 @@ namespace Game.Ecs.Systems
 
             var gridWidth = bottomRight.x - bottomLeft.x;
 
-            _scene.Camera.orthographicSize = gridWidth + 0.5f;
+            _scene.Camera.orthographicSize = gridWidth + 1.8f;
         }
     }
 }

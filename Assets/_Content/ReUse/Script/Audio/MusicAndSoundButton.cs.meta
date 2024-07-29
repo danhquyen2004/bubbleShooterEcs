@@ -3,7 +3,10 @@ guid: e20f166001d835a45a0835ead4b497f7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - icon: {instanceID: 0}
+  - toggleOn: {fileID: 21300000, guid: 3bed22c55cfc7114aa649455eaff5737, type: 3}
+  - toggleOff: {fileID: 21300000, guid: 8935c3bb084a4694ea96b4ae724ee06b, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

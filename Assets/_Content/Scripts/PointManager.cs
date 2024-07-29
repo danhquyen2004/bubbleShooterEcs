@@ -9,6 +9,16 @@ public class PointManager : MonoBehaviour
     public int bestPoint;
 
     public int maxMiss;
+
+    public int small;
+    public int medium;
+    public int large;
+
+    public int currentLevel;
+
+
+    // best point for size boardv 
+    
     private void Awake()
     {
         if(Instance != null)
@@ -17,8 +27,11 @@ public class PointManager : MonoBehaviour
             return;
         }
         Instance = this;
-        SetUpBestPoint();
         maxMiss = 5;
+    }
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
     }
     private void Update()
     {
@@ -45,12 +58,42 @@ public class PointManager : MonoBehaviour
     }
     public void SetUpBestPoint()
     {
-        bestPoint = PlayerPrefs.GetInt("BestPoint");
+        small = PlayerPrefs.GetInt("small");
+        medium = PlayerPrefs.GetInt("medium");
+        large = PlayerPrefs.GetInt("large");
     }
     public void AddPoint(int value,int x = 1)
     {   
         point += (value * x);
         if (point >= 100000)
             point = 100000;
+    }
+
+    public void SetRecord(int value)
+    {
+        int level = currentLevel;
+        switch (level)
+        {
+            case 0:
+                small = value;
+                break;
+            case 1:
+                medium = value; break;
+            case 2:
+                large = value; break;
+        }
+        if (NetworkManager.instance.authData == null) return;
+        if(NetworkManager.instance.authData.GetIsDemo())
+        {
+            switch (level)
+            {
+                case 0:
+                    PlayerPrefs.SetInt("small",value); break;
+                case 1:
+                    PlayerPrefs.SetInt("medium", value); break;
+                case 2:
+                    PlayerPrefs.SetInt("large", value); break;
+            }
+        }
     }
 }

@@ -35,13 +35,18 @@ public class EventUI : MonoBehaviour
     }
     public void Btn_Home()
     {
-        //Platform.PlatformService.EndGame(false);
+        Platform.PlatformService.EndGame(false);
+        AudioController.Instance.sound.Play_Button();
+        SceneTransition.instance.LoadSceneByName("MainUI");
+    }
+    public void Btn_Quit()
+    {
         AudioController.Instance.sound.Play_Button();
         SceneTransition.instance.LoadSceneByName("MainUI");
     }
     public void Btn_Play()
     {
-        //Platform.PlatformService.CreateGame();
+        Platform.PlatformService.CreateGame();
         AudioController.Instance.sound.Play_Button();
         SceneTransition.instance.LoadSceneByName("Game");
     }

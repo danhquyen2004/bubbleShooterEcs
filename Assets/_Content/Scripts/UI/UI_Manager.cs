@@ -65,7 +65,6 @@ public class UI_Manager : MonoBehaviour
     {
         if(GameController.instance.gameOver)
         {
-            StopTimer();
             gameOverPopup.SetActive(true);
         }
             

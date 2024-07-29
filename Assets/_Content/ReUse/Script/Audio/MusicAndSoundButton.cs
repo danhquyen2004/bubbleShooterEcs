@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class MusicAndSoundButton : MonoBehaviour
 {
     [SerializeField] bool isMusic;
-    [SerializeField] GameObject xIcon;
+    [SerializeField] Image icon;
+    public Sprite toggleOn;
+    public Sprite toggleOff;
     private void Update()
     {
-        if(isMusic)
+        if (isMusic)
         {
             MusicHandle();
         }
@@ -20,24 +22,24 @@ public class MusicAndSoundButton : MonoBehaviour
     }
     public void MusicHandle()
     {
-        if(AudioController.Instance.musicOff)
+        if (AudioController.Instance.musicOff)
         {
-            xIcon.SetActive(true);
+            icon.sprite = toggleOff;
         }
         else
         {
-            xIcon.SetActive(false);
+            icon.sprite = toggleOn;
         }
     }
     public void SoundHandle()
     {
         if (AudioController.Instance.soundOff)
         {
-            xIcon.SetActive(true);
+            icon.sprite = toggleOff;
         }
         else
         {
-            xIcon.SetActive(false);
+            icon.sprite = toggleOn;
         }
     }
 
